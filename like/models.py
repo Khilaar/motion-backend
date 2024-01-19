@@ -3,4 +3,4 @@ from django.db.models import ForeignKey
 
 
 class Like(models.Model):
-    post = ForeignKey('Post', related_name='likes', on_delete=models.CASCADE)
+    post = ForeignKey('post.Post', related_name='likes_post_rel', on_delete=models.CASCADE)

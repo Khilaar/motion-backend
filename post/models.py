@@ -12,6 +12,4 @@ class Post(models.Model):
     date_created = models.DateTimeField(auto_now_add=True)
     date_updated = models.DateTimeField(auto_now=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
-    original_post = models.ManyToManyField('Post', related_name='shared_post', blank=True)
-    likes = ForeignKey('Like', on_delete=models.CASCADE)
-    comments = ForeignKey('Comment', on_delete=models.CASCADE)
+    original_post = models.ForeignKey('Post', related_name='original_post_shared_post_rel', blank=True, on_delete=models.CASCADE)
