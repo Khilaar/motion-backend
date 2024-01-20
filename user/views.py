@@ -1,8 +1,10 @@
-from rest_framework.generics import ListAPIView, ListCreateAPIView, RetrieveAPIView
+from rest_framework.generics import ListAPIView, ListCreateAPIView, RetrieveAPIView, RetrieveUpdateDestroyAPIView
 from .models import User
 from .serializers import UserSerializer
 
-class UserListCreateView(ListCreateAPIView):
+
+#Get all users
+class UserListCreateUserView(ListCreateAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
@@ -13,6 +15,13 @@ class UserListCreateView(ListCreateAPIView):
         return User.objects.all()
 
 
-class UserDetailView(RetrieveAPIView):
+#Get single user by id 
+class UserSingleView(RetrieveAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+
+
+#Delete and patch by id
+class RetrieveUpdateDeleteUserView(RetrieveUpdateDestroyAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
