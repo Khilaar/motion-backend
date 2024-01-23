@@ -1,0 +1,37 @@
+2024-01-23 09:43:19.800 GMT [24493] LOG:  starting PostgreSQL 14.10 (Homebrew) on x86_64-apple-darwin23.0.0, compiled by Apple clang version 15.0.0 (clang-1500.0.40.1), 64-bit
+2024-01-23 09:43:19.803 GMT [24493] LOG:  listening on IPv6 address "::1", port 5432
+2024-01-23 09:43:19.803 GMT [24493] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2024-01-23 09:43:19.804 GMT [24493] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2024-01-23 09:43:19.809 GMT [24494] LOG:  database system was shut down at 2024-01-22 19:33:11 GMT
+2024-01-23 09:43:19.816 GMT [24493] LOG:  database system is ready to accept connections
+2024-01-23 09:43:26.428 GMT [24527] FATAL:  role "postgres" does not exist
+2024-01-23 09:43:26.432 GMT [24528] FATAL:  role "postgres" does not exist
+2024-01-23 09:46:19.734 GMT [26622] LOG:  starting PostgreSQL 14.10 (Homebrew) on x86_64-apple-darwin23.0.0, compiled by Apple clang version 15.0.0 (clang-1500.0.40.1), 64-bit
+2024-01-23 09:46:19.737 GMT [26622] LOG:  listening on IPv6 address "::1", port 5432
+2024-01-23 09:46:19.737 GMT [26622] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2024-01-23 09:46:19.738 GMT [26622] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2024-01-23 09:46:19.742 GMT [26623] LOG:  database system was interrupted; last known up at 2024-01-23 09:43:19 GMT
+2024-01-23 09:46:19.814 GMT [26623] LOG:  database system was not properly shut down; automatic recovery in progress
+2024-01-23 09:46:19.816 GMT [26623] LOG:  redo starts at 0/1721B20
+2024-01-23 09:46:19.816 GMT [26623] LOG:  invalid record length at 0/1721B58: wanted 24, got 0
+2024-01-23 09:46:19.816 GMT [26623] LOG:  redo done at 0/1721B20 system usage: CPU: user: 0.00 s, system: 0.00 s, elapsed: 0.00 s
+2024-01-23 09:46:19.825 GMT [26622] LOG:  database system is ready to accept connections
+2024-01-23 09:46:31.381 GMT [26703] FATAL:  role "postgres" does not exist
+2024-01-23 09:46:31.385 GMT [26704] FATAL:  role "postgres" does not exist
+2024-01-23 10:57:40.433 GMT [30600] FATAL:  role "postgres" does not exist
+2024-01-23 11:01:00.058 GMT [31221] FATAL:  database "postgres_motion" does not exist
+2024-01-23 11:01:00.062 GMT [31222] FATAL:  database "postgres_motion" does not exist
+2024-01-23 11:08:49.971 GMT [32792] FATAL:  database "shadsachikonye" does not exist
+2024-01-23 11:10:07.623 GMT [33090] ERROR:  role "shadsachikonye" already exists
+2024-01-23 11:10:07.623 GMT [33090] STATEMENT:  CREATE ROLE shadsachikonye PASSWORD 'SCRAM-SHA-256$4096:kFmlSrh9NlXn4bhxf8QHBw==$mbllmUjBGFjC03YqJm3OiWWg3bPzbV6o+2dyrqRS7LA=:teKB8qnlx7jQxxhaXzsV0Huv6R3TmCZiZjhEM3ldGqY=' NOSUPERUSER NOCREATEDB NOCREATEROLE INHERIT LOGIN;
+2024-01-23 11:25:59.523 GMT [35525] FATAL:  database "postgres_motion" does not exist
+2024-01-23 11:25:59.527 GMT [35526] FATAL:  database "postgres_motion" does not exist
+2024-01-23 11:27:09.529 GMT [35724] LOG:  invalid length of startup packet
+2024-01-23 11:27:10.693 GMT [35725] LOG:  invalid length of startup packet
+2024-01-23 11:27:10.703 GMT [35731] LOG:  invalid length of startup packet
+2024-01-23 11:27:10.723 GMT [35732] LOG:  invalid length of startup packet
+2024-01-23 11:27:11.883 GMT [35736] LOG:  invalid length of startup packet
+2024-01-23 11:27:16.931 GMT [35737] LOG:  invalid length of startup packet
+2024-01-23 11:27:16.934 GMT [35754] LOG:  invalid length of startup packet
+2024-01-23 11:27:16.939 GMT [35755] LOG:  invalid length of startup packet
+2024-01-23 11:27:46.961 GMT [35884] LOG:  invalid length of startup packet
