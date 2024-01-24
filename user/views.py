@@ -1,4 +1,9 @@
-from rest_framework.generics import ListAPIView, ListCreateAPIView, RetrieveAPIView, RetrieveUpdateDestroyAPIView
+from rest_framework import status
+from rest_framework.generics import ListCreateAPIView, RetrieveAPIView, RetrieveUpdateDestroyAPIView
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.response import Response
+from rest_framework.views import APIView
+
 from .models import User
 from .serializers import UserSerializer
 from .permissions import IsOwnerOrReadOnly
@@ -15,12 +20,24 @@ class UserListCreateUserView(ListCreateAPIView):
             return User.objects.filter(first_name__icontains=search)
         return User.objects.all()
 
+########################################################################################
 
 #Get single user by id
 class UserSingleView(RetrieveAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
+########################################################################################
+
+#Get logged in user (me)
+class CurrentUserView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request, *args, **kwargs):
+        serializer = UserSerializer(request.user)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+########################################################################################
 
 #Delete and patch by id
 """
@@ -30,3 +47,5 @@ class RetrieveUpdateDeleteUserView(RetrieveUpdateDestroyAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
     permission_classes = [IsOwnerOrReadOnly]
+
+########################################################################################
