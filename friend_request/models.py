@@ -23,4 +23,4 @@ class FriendRequest(models.Model):
 
     status = models.IntegerField(choices=STATUS_CHOICES, default=PENDING)
     requester = ForeignKey(User, related_name="requester_user", on_delete=models.CASCADE)
-    receiver = ForeignKey(User, on_delete=models.CASCADE)
+    receiver = ForeignKey(User, related_name="receiver_user", on_delete=models.CASCADE)
