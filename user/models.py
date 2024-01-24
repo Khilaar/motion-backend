@@ -1,6 +1,6 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
-from django.db.models import OneToOneField
+from django.db.models import OneToOneField, ForeignKey, CASCADE
 
 
 class User(AbstractUser):
@@ -13,6 +13,3 @@ class User(AbstractUser):
     about_me = models.TextField(max_length=1000, blank=True)
     things_user_likes = models.TextField(max_length=500, blank=True)
     custom_users_following = models.ManyToManyField(to='User', related_name="custom_users_follower", blank=True)
-    friend_request = OneToOneField(to="friend_request.FriendRequest", related_name="users_friend_request", on_delete=models.CASCADE, blank=True, null=True)
-    friend_request_receiver = OneToOneField(to="friend_request.FriendRequest", related_name="users_friend_request_receiver", on_delete=models.CASCADE, blank=True, null=True)
-
