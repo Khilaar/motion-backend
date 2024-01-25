@@ -98,3 +98,12 @@ class RejectFriendRequestView(APIView):
         return Response({'detail': 'Friend request rejected.'})
 
 ########################################################################################
+
+#Delete a friend request
+class DeleteFriendRequestView(APIView):
+    def delete(self, request, pk):
+        friend_request = get_object_or_404(FriendRequest, id=pk)
+        friend_request.delete()
+        return Response({'detail': 'Friend request deleted.'})
+
+########################################################################################
