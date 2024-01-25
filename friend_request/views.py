@@ -35,7 +35,7 @@ class SendFriendRequestView(CreateAPIView):
         # Create the friend request
         serializer.save(requester=requester, receiver=receiver, status=FriendRequest.PENDING)
 
-#Get all friend requests
+#Get all friend requests from all users
 class FriendRequestListView(ListAPIView):
     queryset = FriendRequest.objects.all()
     serializer_class = FriendRequestSerializer

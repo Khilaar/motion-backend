@@ -4,11 +4,6 @@ from django.db.models import OneToOneField, ForeignKey
 
 User = get_user_model()
 
-"""
-TODO:
-At the moment the current user can send mulitple request to each user.
-"""
-
 
 class FriendRequest(models.Model):
     PENDING = 0
