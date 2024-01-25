@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'registration_profile',
     'user',
     'authentication',
+    'django_filters',
 ]
 
 MIDDLEWARE = [
