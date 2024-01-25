@@ -10,11 +10,7 @@ from django.shortcuts import get_object_or_404
 
 User = get_user_model()
 
-
-# Create your views here.
-from rest_framework import status
-from rest_framework.response import Response
-
+########################################################################################
 
 #When we send a request in the frontend we need to add the requester id and the receiver id in the body. "requester" & "receiver"
 class SendFriendRequestView(CreateAPIView):
@@ -35,6 +31,8 @@ class SendFriendRequestView(CreateAPIView):
         # Create the friend request
         serializer.save(requester=requester, receiver=receiver, status=FriendRequest.PENDING)
 
+########################################################################################
+
 #Get all friend requests from all users
 class FriendRequestListView(ListAPIView):
     queryset = FriendRequest.objects.all()
@@ -42,3 +40,27 @@ class FriendRequestListView(ListAPIView):
 
     def get_queryset(self):
         return FriendRequest.objects.filter()
+
+########################################################################################
+
+#Get all friend requests that the current user sent
+class SentFriendRequestListView(ListAPIView):
+    queryset = FriendRequest.objects.all()
+    serializer_class = FriendRequestSerializer
+
+    def get_queryset(self):
+        current_user = self.request.user
+        return FriendRequest.objects.filter(requester=current_user)
+
+########################################################################################
+
+#Get all friend requests that the current user received
+class ReceivedFriendRequestListView(ListAPIView):
+    queryset = FriendRequest.objects.all()
+    serializer_class = FriendRequestSerializer
+
+    def get_queryset(self):
+        current_user = self.request.user
+        return FriendRequest.objects.filter(receiver=current_user)
+
+########################################################################################
