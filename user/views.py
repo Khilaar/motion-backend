@@ -1,3 +1,4 @@
+from django.shortcuts import get_object_or_404
 from rest_framework import status
 from rest_framework.generics import ListCreateAPIView, RetrieveAPIView, RetrieveUpdateDestroyAPIView, UpdateAPIView
 from rest_framework.permissions import IsAuthenticated
@@ -60,9 +61,26 @@ class CurrentUserUpdateView(UpdateAPIView):
 ########################################################################################
 
 #Delete and patch by id
+#Authorization added, can only patch and delete own user profile
 class RetrieveUpdateDeleteUserView(RetrieveUpdateDestroyAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
     permission_classes = [IsOwnerOrReadOnly]
 
 ########################################################################################
+
+#Follow another user
+class FollowUserView(APIView):
+    def post(self, request, pk):
+        user = request.user
+
+        if user.pk == pk:
+            return Response({'detail': 'You cannot follow yourself.'}, status=status.HTTP_400_BAD_REQUEST)
+
+        user_to_follow = get_object_or_404(User, pk=pk)
+
+        if user_to_follow in user.user_following.all():
+            return Response({'detail': 'You are already following this user.'}, status=status.HTTP_400_BAD_REQUEST)
+
+        user.user_following.add(user_to_follow)
+        return Response({'detail': 'You are now following this user.'}, status=status.HTTP_200_OK)
