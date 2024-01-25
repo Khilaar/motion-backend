@@ -27,9 +27,9 @@ AUTH_USER_MODEL = 'user.User'
 SECRET_KEY = 'django-insecure-g1lt=@7kn131n%84ld%zekl%sn*o!cj54%@e-@8*q_f5=i=k*d'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['motion-backend-group-1.herokuapp.com', 'localhost']
 
 # Application definition
 
